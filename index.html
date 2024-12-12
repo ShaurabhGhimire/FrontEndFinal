@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Finance Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <script defer src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+</head>
+
+<body>
+    <header>
+        <h1>💰 Personal Finance Tracker</h1>
+        <div id="budget-display">
+            <h2>Weekly Budget: <span id="budget-amount">$0</span></h2>
+            <button id="update-budget">Update Budget</button>
+        </div>
+    </header>
+    <div class="container">
+        <section class="input-section">
+            <h2>Log Your Expense</h2>
+            <form id="expense-form">
+                <input type="number" id="amount" placeholder="Amount" required>
+                <select id="category" required>
+                    <option value="" disabled selected>Select Category</option>
+                    <option value="Food">Food</option>
+                    <option value="Transportation">Transportation</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Education">Education</option>
+                    <option value="Subscriptions">Subscriptions</option>
+                    <option value="Personal">Personal</option>
+                    <option value="Miscellaneous">Miscellaneous</option>
+                </select>
+                <input type="date" id="date" required>
+                <div id="subscription-details" style="display: none;">
+                    <input type="text" id="subscription-name" placeholder="Subscription Name">
+                    <select id="subscription-frequency">
+                        <option value="Weekly">Weekly</option>
+                        <option value="Monthly">Monthly</option>
+                        <option value="Quarterly">Quarterly</option>
+                        <option value="Semi-Annual">Semi-Annual</option>
+                        <option value="Annual">Annual</option>
+                    </select>
+                </div>
+                <button type="submit">Add Expense</button>
+            </form>
+        </section>
+
+        <section class="summary-section">
+            <h2>Spending Summary</h2>
+            <div class="filter-options">
+                <label for="time-filter">View by:</label>
+                <select id="time-filter">
+                    <option value="daily">Daily</option>
+                    <option value="weekly">Weekly</option>
+                    <option value="monthly">Monthly</option>
+                </select>
+                <button id="sort-expenses">Sort by Expense</button>
+            </div>
+            <canvas id="spending-chart"></canvas>
+        </section>
+
+        <section class="subscriptions-section">
+            <h2>Your Subscriptions</h2>
+            <div id="subscription-list"></div>
+        </section>
+    </div>
+</body>
+
+</html>
